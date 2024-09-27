@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+        background-color: gray;
+        background-size: 100vw 150vh;
+    }
+
+    form {
+        background-color: bisque;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: brown;
+        ;
+        background-color: burlywood;
+
+    }
+
+    button {
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .form-label {
+        color: blue;
+        text-align: center;
+        font-size: larger;
+
+
+    }
+
+    .a {
+        background-color: green;
+        color: white
+    }
+
+    .b {
+        background-color: red;
+        color: white
+    }
+</style>
+
+<body>
+    <div class="container">
+        <center>
+            <form class="form-control" action="{% url 'calculator' %}" method="post">
+                {% csrf_token %}
+                <h1>CALCULATOR</h1>
+                <div>
+                    <label for="num1" class="form-label ">First Number:</label><br>
+                    <input type="text" name="num1" id="" class="form-control" required><br><br>
+                </div>
+
+                <div>
+                    <label for="num2" class="form-label text-secondary">Second Number:</label><br>
+                    <input type="text" name="num2" id="" class="form-control" required><br><br>
+                </div>
+
+                <div>
+                    <label for="operation" class="form-label">Operation:</label><br>
+                    <select class="form-select" name="operation" id="operation" required>
+                        <option value="select">Select Mathematical Operation</option>
+                        <option value="+">Addition (+)</option>
+                        <option value="-">Subtraction (-)</option>
+                        <option value="*">Multiplication (*)</option>
+                        <option value="/">Division (/)</option>
+                    </select><br><br>
+                </div>
+                <div>
+                    <button class=a type="submit">Submit</button><br><br>
+
+                    <label for="result">Result:</label><br>
+                    <input type="text" name="result" id="" class="form-control" value="{{result}}"><br><br>
+
+                    <button class="b" type="submit" name="reset" value="reset" >Reset</button>                
+                </div>
+            </form>
+        </center>
+    </div>
+</body>
+
+</html>
